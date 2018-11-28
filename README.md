@@ -15,6 +15,10 @@
 The object is to turn over pairs of matching cards.
 When all pairs are matched up you win the game.**
 
+## Game
+
+Play the game [here](https://rowam.github.io/Memory-Game/).
+
 ## Contributing
 
 Big help from
