@@ -215,8 +215,8 @@ function myStopFunction() {
 }
 
 /*
- * Confetti drop 
- */
+ * Confetti drop
+*/
 for (var i = 0; i < 250; i++) {
   create(i);
 }
