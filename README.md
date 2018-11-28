@@ -11,9 +11,9 @@
 
 ## Instructions
 
-Concentration, To play the game flip two cards at a time.
+**Concentration, To play the game flip two cards at a time.
 The object is to turn over pairs of matching cards.
-When all pairs are matched up you win the game.
+When all pairs are matched up you win the game.**
 
 ## Contributing
 
@@ -24,5 +24,5 @@ Confetti animation
 http://www.cagrimmett.com/til/2018/01/05/css-confetti.html
 
 ## External libraries Used
-jQuery
-animate.css
+* jQuery
+* animate.css
