@@ -1,6 +1,8 @@
 /*
  * Create a list that holds all of your cards
  */
+let cardsArray = ['fa-anchor', 'fa-anchor', 'fa-bicycle', 'fa-bolt', 'fa-cube', 'fa-diamond', 'fa-diamond', 'fa-paper-plane-o', 'fa-paper-plane-o', 'fa-bomb', 'fa-leaf', 'fa-bomb', 'fa-bolt', 'fa-bicycle', 'fa-leaf', 'fa-cube'];
+
 const cards = document.querySelectorAll('.card');
 const deck = document.querySelector('.deck');
 var toggledCards = [];
@@ -94,9 +96,8 @@ function isItAMatch(clickTarget) {
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    let currentIndex = array.length,
-        temporaryValue, randomIndex;
+function shuffle() {
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -106,15 +107,15 @@ function shuffle(array) {
         array[randomIndex] = temporaryValue;
     }
 
-    return array;
+    return allCards;
 }
 
-function newDeck() {
-for (var i = 0; i < allCards.length; i++) {
-  shuffle(cards) = deck;
-}
-$('body').append(deck);
-}
+let cardsShuffled = shuffle(cardsArray);
+
+    for (let card of cardsShuffled) {
+        let li = newCard(card);
+        list[0].appendChild(li);
+    }
 
 
 //On repeat button click event the
