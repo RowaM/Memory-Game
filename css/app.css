@@ -22,8 +22,9 @@ body {
 }
 
 /* The Modal (background) */
+
 .modal {
-    display: block; /* Hidden by default */
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -44,6 +45,32 @@ body {
     padding: 20px;
     border-radius: 10px;
     width: 50vw; /* Could be more or less, depending on screen size */
+}
+
+.modal-content .restart {
+    cursor: pointer;
+    color: #fff;
+}
+
+.modal-content .restart h3 {
+  color: #C252D3;
+  font-size: 25px;
+  transition-delay: 0.5s;
+  -webkit-transition: background-color 1s ease-in-out;
+  -moz-transition: background-color 1s ease-in-out;
+  -ms-transition: background-color 1s ease-in-out;
+  -o-transition: background-color 1s ease-in-out;
+  transition: background-color 1s ease-in-out;
+  margin: 0 auto;
+  width: 180px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+
+}
+
+ .modal-content .restart h3:hover {
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 h2 {
@@ -226,9 +253,6 @@ h1 {
     padding: 0 15px;
 }
 
-.restart:hover {
-    color: grey;
-}
 
 /*
  * Media Queries

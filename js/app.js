@@ -1,13 +1,64 @@
 /*
  * Create a list that holds all of your cards
  */
-const cards = document.querySelectorAll('.card');
-const deck = document.querySelector('.deck');
-var toggledCards = [];
-let moves = 0;
-var repeat = document.querySelector('.restart');
-var allCards = Array.from(cards);
-var number = 0;
+ const symbols = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
+ const cards = symbols.concat(symbols);
+ const allCards = Array.from(cards);
+ const deck = document.querySelector('.deck');
+ var toggledCards = [];
+ let moves = 0;
+ const repeat = document.querySelectorAll('.restart');
+ var number = 0;
+
+
+  /*
+   * Restarting the game
+   */
+  $('.restart').on('click', function () {
+    restartFunctions();
+});
+
+  function restartFunctions() {
+     location.reload(); //Reloads the entire page and resets the game
+  }
+
+  //Reset function
+  function resetMe(){
+      var counter = document.querySelector('.moves');
+      moves = 0;
+      counter.innerHTML = moves;
+      }
+
+ // Shuffle function from http://stackoverflow.com/a/2450976
+ function shuffle(array) {
+     let currentIndex = array.length,
+         temporaryValue, randomIndex;
+
+     while (currentIndex !== 0) {
+         randomIndex = Math.floor(Math.random() * currentIndex);
+         currentIndex -= 1;
+         temporaryValue = array[currentIndex];
+         array[currentIndex] = array[randomIndex];
+         array[randomIndex] = temporaryValue;
+     }
+
+     return array;
+ }
+
+ function newDeck() {
+   let shuffledCards = shuffle(allCards); // this will shuffle the card symbols that we saved in the allCards array.
+
+   for(let i = 0; i < shuffledCards.length; i++) {
+     let cardElement = document.createElement('li'); // create an li element.
+
+     cardElement.classList.add('card'); // add the class card to each card.
+
+     cardElement.innerHTML = '<i class="' + shuffledCards[i] + '"></i>'; // add the i element in the innerHTML of the li element and add the classes dynamically (shuffledCards[i] will mean the first symbol in the array, then the second, then the third, etc..)
+
+     deck.appendChild(cardElement) // Add the cards to the deck
+   }
+ }
+ newDeck(); // calling the function to create the deck with the cards inside.
 
 /*
 *The functions to toggle cards and add to array
@@ -59,7 +110,6 @@ deck.addEventListener('click', event => {
       addToggleCards(clickTarget);
       if(toggledCards.length > 1) { // This conditional will only trigger the isItAMatch method when there are two cards in the toggledCards array.
         isItAMatch(clickTarget);
-        stopMe();
       }
     }
 });
@@ -83,69 +133,6 @@ function isItAMatch(clickTarget) {
   800);
 }
 }
-
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    let currentIndex = array.length,
-        temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
-
-function newDeck() {
-for (var i = 0; i < allCards.length; i++) {
-  shuffle(cards) = deck;
-}
-$('body').append(deck);
-}
-
-
-//On repeat button click event the
-//reset, counter, and timer functions are all rest!
-repeat.addEventListener('click', event => {
-  const shuffling = shuffle(allCards);
-  for (card of shuffling) {
-    toggledCards = [];
-    deck.appendChild(card);
-    resetMe();
-    countTimer();
-    hideUs();
-    number = 0;
-    resetStars();
-  }
-});
-
-//Reset function
-function resetMe(){
-    var counter = document.querySelector('.moves');
-    moves = 0;
-    counter.innerHTML = moves;
-    }
-
-//Hiding the cards when reset
-function hideUs(){
-  for (var i = 0; i < allCards.length; i++) {
-    allCards[i].classList.remove("match","show","open");
-}
-}
-
 
 /*
  * Rating the game and displaying stars as per the score
@@ -172,7 +159,7 @@ if (moves === 25) {
 
 function stopMe() {
 if (number >= 8) { // when to stop
-  myStopFunction();
+  clearInterval(timerVar);
   modalMe();
 }
 }
@@ -183,15 +170,12 @@ if (number >= 8) { // when to stop
 
 // Get the modal
 var modal = document.getElementById('myModal');
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
 }
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -221,12 +205,8 @@ function countTimer() {
    document.getElementById("second-timer").innerHTML = minute + ":" + seconds;
 }
 
-function myStopFunction() {
-    clearInterval(timerVar);
-}
-
 /*
- * Confetti drop
+ * Confetti drop---------------------------------
 */
 for (var i = 0; i < 250; i++) {
   create(i);

@@ -10,21 +10,25 @@
     <link rel="stylesheet" href="css/app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body onload="newDeck();">
+
+<body>
 
   <!-- The Modal -->
   <div id="myModal" class="modal">
 
     <!-- Modal content -->
     <div class="modal-content wrapper">
-      <span class="close">&times;</span>
-      <h2>Congrats!</h2>
-      <ul class="stars">
-        <li><i class="fa fa-star fa-3x"></i></li>
-        <li><i class="fa fa-star fa-3x"></i></li>
-        <li><i class="fa fa-star fa-3x"></i></li>
-      </ul>
-      <h3 id="timer"></h3>
+        <span class="close">&times;</span>
+        <h2>Congrats!</h2>
+        <ul class="stars">
+            <li><i class="fa fa-star fa-3x"></i></li>
+            <li><i class="fa fa-star fa-3x"></i></li>
+            <li><i class="fa fa-star fa-3x"></i></li>
+        </ul>
+        <h3 id="timer"></h3>
+        <div class="restart">
+            <h3>Play Again <i class="fa fa-repeat"></i></h3>
+        </div>
     </div>
 
   </div>
@@ -43,62 +47,14 @@
           </ul>
 
         	<span class="moves">0</span> Moves
-          <p id="second-timer">00:00</p>
+          <p id="second-timer">0:0</p>
 
-            <div class="restart">
+          <div class="restart">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
 
         <ul class="deck">
-            <li class="card">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-cube"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-cube"></i>
-            </li>
         </ul>
     </div>
 
